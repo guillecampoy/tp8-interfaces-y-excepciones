@@ -1,6 +1,8 @@
 package data.interfaces;
 
 public interface Pago {
-    double procesarPago(double valor);
-    double aplicarDescuento(double valor);
+    default boolean procesarPago(double monto) {
+        System.out.println("[Pago] Procesando pago estándar por $" + monto);
+        return true;
+    }
 }
