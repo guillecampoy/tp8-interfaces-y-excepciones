@@ -14,9 +14,10 @@ public class CU_AvanzarEstado implements UseCase {
         ConsoleIO.hr();
         for (int i = 0; i< EstadoPedido.values().length; i++)
             System.out.printf("%d) %s%n", i+1, EstadoPedido.values()[i]);
-        int idx = ConsoleIO.readInt("> ") - 1;
-        if (idx>=0 && idx<EstadoPedido.values().length) {
-            pedido.avanzarEstado(EstadoPedido.values()[idx]);
-        } else System.out.println("Opción inválida.");
+        int idx = ConsoleIO.readMenuOption(EstadoPedido.values().length, true);
+
+        if (idx == 0) return;
+
+        pedido.avanzarEstado(EstadoPedido.values()[idx]);
     }
 }

@@ -14,7 +14,8 @@ public class CU_PagarPedido implements UseCase {
     @Override public void run() {
         ConsoleIO.hr();
         System.out.println("1) PayPal  |  2) Tarjeta Crédito");
-        int opt = ConsoleIO.readInt("> ");
+        int opt = ConsoleIO.readMenuOption(2, true);
+
         boolean ok = switch (opt) {
             case 1 -> pedido.pagarCon(new PayPal());
             case 2 -> pedido.pagarCon(new TarjetaCredito());

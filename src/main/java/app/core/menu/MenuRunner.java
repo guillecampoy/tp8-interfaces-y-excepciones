@@ -1,5 +1,6 @@
 package app.core.menu;
 
+import app.core.utils.ConsoleIO;
 import app.core.utils.ContextColor;
 import app.core.utils.UtilsColor;
 
@@ -13,9 +14,15 @@ public class MenuRunner {
             UtilsColor.imprimirBloque(ContextColor.SUCCESS, "\n===== Menú TP 8 - Interfaces y Excepciones =====");
             for (int i=0;i<items.size();i++) System.out.printf("%d) %s%n", i+1, items.get(i).nombre());
             UtilsColor.imprimirBloque(ContextColor.DEFAULT, "0) Salir");
-            UtilsColor.imprimirBloque(ContextColor.WARNING, ">", 'n');
-            opt = Integer.parseInt(in.nextLine());
-            if (opt>0 && opt<=items.size()) items.get(opt-1).ejecutar();
-        } while (opt!=0);
+            opt = ConsoleIO.readMenuOption(items.size(), true);
+            if (opt > 0) {
+                try {
+                    items.get(opt - 1).ejecutar();
+                } catch (Exception ex) {
+                    UtilsColor.imprimirBloque(ContextColor.ERROR, "⚠ Ocurrió un error en el caso de uso: " + ex.getMessage());
+                }
+                ConsoleIO.pause();
+            }
+        } while (opt != 0);
     }
 }

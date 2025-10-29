@@ -1,6 +1,8 @@
 package app.features.ecommerce;
 
 import app.core.utils.ConsoleIO;
+import app.core.utils.ContextColor;
+import app.core.utils.UtilsColor;
 import app.fixtures.CatalogoProductosSeed;
 import app.usecases.UseCase;
 import app.data.model.Pedido;
@@ -21,10 +23,10 @@ public class CU_AgregarProductos implements UseCase {
         ConsoleIO.hr();
         for (int i=0;i<items.size();i++)
             System.out.printf("%d) %s $%.2f%n", i+1, items.get(i).getNombre(), items.get(i).getPrecioUnitario());
-        int idx = ConsoleIO.readInt("Elegí un producto (número): ") - 1;
-        if (idx>=0 && idx<items.size()) {
-            pedido.agregarProducto(items.get(idx));
-            System.out.println("Agregado.");
-        } else System.out.println("Opción inválida.");
+        int idx = ConsoleIO.readMenuOption(items.size(), true);
+        if (idx == 0) return;
+        Producto elegido = items.get(idx - 1);
+        pedido.agregarProducto(elegido);
+        UtilsColor.imprimirBloque(ContextColor.SUCCESS, "✔ Agregado: " + elegido.getNombre());
     }
 }
