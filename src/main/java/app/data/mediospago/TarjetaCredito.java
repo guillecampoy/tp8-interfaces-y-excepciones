@@ -1,7 +1,7 @@
-package data.entidades.payments;
+package app.data.mediospago;
 
-import data.interfaces.Pago;
-import data.interfaces.PagoConDescuento;
+import app.data.interfaces.Pago;
+import app.data.interfaces.PagoConDescuento;
 
 public class TarjetaCredito implements Pago, PagoConDescuento {
     private final double MONTO_MINIMO = 10000;

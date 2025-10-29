@@ -1,6 +1,6 @@
-package data.entidades.payments;
+package app.data.mediospago;
 
-import data.interfaces.Pago;
+import app.data.interfaces.Pago;
 
 public class PayPal implements Pago {
     @Override

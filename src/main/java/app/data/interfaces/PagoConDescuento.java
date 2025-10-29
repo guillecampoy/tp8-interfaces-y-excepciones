@@ -1,4 +1,4 @@
-package data.interfaces;
+package app.data.interfaces;
 
 public interface PagoConDescuento{
     double aplicarDescuento(double montoOriginal);

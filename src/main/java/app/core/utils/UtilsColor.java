@@ -1,4 +1,4 @@
-package core.utils;
+package app.core.utils;
 
 public class UtilsColor {
     private static final String RESET = "\u001B[0m";

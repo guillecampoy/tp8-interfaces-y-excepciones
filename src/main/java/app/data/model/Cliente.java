@@ -1,6 +1,6 @@
-package data.entidades;
+package app.data.model;
 
-import data.interfaces.Notificable;
+import app.data.interfaces.Notificable;
 
 public class Cliente implements Notificable {
     private String nombre;
@@ -14,5 +14,9 @@ public class Cliente implements Notificable {
     @Override
     public void notificar(String mensaje) {
          System.out.println("[Notificación a " + nombre + " <" + contacto + ">] " + mensaje);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }

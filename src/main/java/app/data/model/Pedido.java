@@ -1,9 +1,9 @@
-package data.entidades;
+package app.data.model;
 
-import data.interfaces.Notificable;
-import data.interfaces.Pagable;
-import data.interfaces.Pago;
-import data.interfaces.PagoConDescuento;
+import app.data.interfaces.Notificable;
+import app.data.interfaces.Pagable;
+import app.data.interfaces.Pago;
+import app.data.interfaces.PagoConDescuento;
 
 import java.util.ArrayList;
 import java.util.List;

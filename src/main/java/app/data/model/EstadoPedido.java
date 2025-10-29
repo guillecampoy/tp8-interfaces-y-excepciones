@@ -1,4 +1,4 @@
-package data.entidades;
+package app.data.model;
 
 public enum EstadoPedido {
     CREADO,

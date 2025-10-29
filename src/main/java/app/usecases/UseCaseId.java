@@ -1,0 +1,10 @@
+package app.usecases;
+
+public enum UseCaseId {
+    ECOM_CREAR_PEDIDO,
+    ECOM_AGREGAR_PRODUCTOS,
+    ECOM_PAGAR_PEDIDO,
+    ECOM_AVANZAR_ESTADO,
+    DEMO_DIAMANTE_PAGOS,
+    ECOM_VER_RESUMEN
+}

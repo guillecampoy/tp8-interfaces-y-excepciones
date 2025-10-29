@@ -1,6 +1,6 @@
-package data.entidades;
+package app.data.model;
 
-import data.interfaces.Pagable;
+import app.data.interfaces.Pagable;
 
 public class Producto implements Pagable {
     private String nombre;
