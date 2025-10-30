@@ -1,8 +1,12 @@
 package app.core.utils;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ConsoleIO {
     private static final Scanner SC = new Scanner(System.in);
@@ -87,6 +91,51 @@ public class ConsoleIO {
         int max = itemsCount;
         String legend = allowExit ? String.format("> (0..%d): ", max) : String.format("> (1..%d): ", max);
         return readIntInRange(legend, min, max);
+    }
+
+    /** Acepta SOLO los valores listados (varargs). Ej: readMenuOptionAllowed(1,2) */
+    public static int readMenuOptionAllowed(int... allowedValues) {
+        if (allowedValues == null || allowedValues.length == 0)
+            throw new IllegalArgumentException("Se requiere al menos un valor permitido.");
+        // Normalizamos y mostramos ayuda:
+        Set<Integer> allowed = Arrays.stream(allowedValues).boxed()
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+        String legend = "> (" + allowed.stream().map(String::valueOf).collect(Collectors.joining(",")) + "): ";
+        return readIntAllowed(legend, allowed);
+    }
+
+    public static int readMenuOptionAllowed(Set<Integer> allowedValues) {
+        if (allowedValues == null || allowedValues.isEmpty())
+            throw new IllegalArgumentException("Se requiere al menos un valor permitido.");
+        String legend = "> (" + allowedValues.stream().map(String::valueOf).collect(Collectors.joining(",")) + "): ";
+        return readIntAllowed(legend, allowedValues);
+    }
+
+    private static int readIntAllowed(String prompt, Set<Integer> allowed) {
+        while (true) {
+            int val = readIntSafe(prompt);
+            if (allowed.contains(val)) return val;
+            System.out.println("⚠ Opción inválida. Valores permitidos: " + allowed);
+        }
+    }
+
+    /* ====== NUEVO: Índices 1-based (sin 0) para listas ====== */
+
+    /** Para listas mostradas 1..N. Retorna índice 1..N (nunca 0). */
+    public static int readIndex1Based(String prompt, int size) {
+        if (size <= 0) throw new IllegalArgumentException("La lista está vacía.");
+        return readIntInRange(prompt, 1, size);
+    }
+
+    /** Igual que arriba, pero imprime prompt estándar automáticamente. */
+    public static int readIndex1Based(int size) {
+        return readIndex1Based("> (1.." + size + "): ", size);
+    }
+
+    /** Opcional: retorna 0 para “volver”, o 1..N como índice válido. */
+    public static int readIndex1BasedOrZero(int size) {
+        if (size <= 0) throw new IllegalArgumentException("La lista está vacía.");
+        return readIntInRange("> (0 para volver, 1.." + size + "): ", 0, size);
     }
 
     /* ====== Sí/No ====== */

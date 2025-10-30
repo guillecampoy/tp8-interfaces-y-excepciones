@@ -23,7 +23,7 @@ public class CU_AgregarProductos implements UseCase {
         ConsoleIO.hr();
         for (int i=0;i<items.size();i++)
             System.out.printf("%d) %s $%.2f%n", i+1, items.get(i).getNombre(), items.get(i).getPrecioUnitario());
-        int idx = ConsoleIO.readMenuOption(items.size(), true);
+        int idx = ConsoleIO.readIndex1BasedOrZero(items.size());
         if (idx == 0) return;
         Producto elegido = items.get(idx - 1);
         pedido.agregarProducto(elegido);
