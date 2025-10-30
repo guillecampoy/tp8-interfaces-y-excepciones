@@ -9,7 +9,7 @@ import app.data.mediospago.TarjetaCredito;
 public class CU_PagarPedido implements UseCase {
     private final Pedido pedido;
     public CU_PagarPedido(Pedido pedido){ this.pedido = pedido; }
-    @Override public String nombre() { return "[E-commerce] Pagar Pedido (PayPal/Tarjeta)"; }
+    @Override public String nombre() { return " [E-commerce] Pagar Pedido (PayPal/Tarjeta)"; }
 
     @Override public void run() {
         ConsoleIO.hr();

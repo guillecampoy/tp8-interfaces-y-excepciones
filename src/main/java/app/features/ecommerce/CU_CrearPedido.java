@@ -10,7 +10,7 @@ public class CU_CrearPedido implements UseCase {
     private final ClientesSeed clientes;
     public CU_CrearPedido(ClientesSeed clientes){ this.clientes = clientes; }
 
-    @Override public String nombre() { return "[E-commerce] Crear Pedido"; }
+    @Override public String nombre() { return " [E-commerce] Crear Pedido"; }
 
     @Override public void run() {
         String nombre = ConsoleIO.readLine("Nombre cliente (enter para seed): ");

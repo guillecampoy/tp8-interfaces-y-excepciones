@@ -16,7 +16,7 @@ public class CU_AgregarProductos implements UseCase {
     public CU_AgregarProductos(Pedido pedido, CatalogoProductosSeed catalogo){
         this.pedido = pedido; this.catalogo = catalogo;
     }
-    @Override public String nombre() { return "[E-commerce] Agregar productos al Pedido"; }
+    @Override public String nombre() { return " [E-commerce] Agregar productos al Pedido"; }
 
     @Override public void run() {
         List<Producto> items = catalogo.catalogo();

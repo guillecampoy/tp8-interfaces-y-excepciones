@@ -8,7 +8,7 @@ import app.data.model.Pedido;
 public class CU_AvanzarEstado implements UseCase {
     private final Pedido pedido;
     public CU_AvanzarEstado(Pedido pedido){ this.pedido = pedido; }
-    @Override public String nombre() { return "[E-commerce] Avanzar estado Pedido"; }
+    @Override public String nombre() { return " [E-commerce] Avanzar estado Pedido"; }
 
     @Override public void run() {
         ConsoleIO.hr();
