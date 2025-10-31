@@ -29,8 +29,6 @@ public class CU_LecturaArchivo implements UseCase {
 
         // Se apunta a una carpeta no a un archivo
         leerYMostrar(FilesSeed.DEMO_DIRECTORIO);
-
-        ConsoleIO.pause();
     }
 
     private void leerYMostrar(String resourcePath) {
