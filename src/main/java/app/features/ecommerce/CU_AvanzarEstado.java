@@ -16,7 +16,7 @@ public class CU_AvanzarEstado implements UseCase {
             System.out.printf("%d) %s%n", i+1, EstadoPedido.values()[i]);
         int idx = ConsoleIO.readIndex1BasedOrZero(EstadoPedido.values().length);
         if (idx == 0) return;
-        
+
         pedido.avanzarEstado(EstadoPedido.values()[idx-1]);
     }
 }

@@ -23,17 +23,29 @@ de aplicaciones escalables y mantenibles.
 
 ```bash
 Tp8-interfaces-y-excepciones/
-├── src/
-│   ├── core/                               # Clases de dominio necesarias para el desarrollo de los ejercicios
-│   │   └──                  
-│   │
-│   ├── app/
-│   │   └── Main.java                       # Clase con método main, menu simple para ejecución del trabajo  
-│   ├── fixtures/                           # Carga de datos de prueba para los ejercicios
-│   │   └──    
-│   └── utils/
-│      ├── ContextColor.java                # Enumerado para establecer contextos para mensajes
-│      └── UtilsColor.java                  # Utilitarios para impresión con colores
+├── ../app
+│      ├── app/
+│      │   └── Main.java                       # Clase con método main, menu simple para ejecución del trabajo  
+│      ├── core/                               # Clases soporte cross del proyecto, como menues y decoradores
+│      │    ├── utils/
+│      │    │      └──                         # Decorado en consola     
+│      │    └── menu/                  
+│      │           └──                         # Menu principal      
+│      ├── data/
+│      │      ├── exceptions/ 
+│      │      │     └──                        # Excepciones custom
+│      │      ├── interfaces/                  
+│      │      │     └──                        # Interfaces para casos de uso de ecommerce
+│      │      ├── mediospago/ 
+│      │      │     └──                        # Clases específicas de medios de pago
+│      │      └── model/                  
+│      │           └──                         # Clases modelo de datos ecommerce   
+│      ├── featuress/                          
+│      │   └──                                 # Casos de uso ecommerce (interfaces) y manejo errores (exceptions)
+│      ├── fixtures/                          
+│      │   └──                                 # Carga de datos de prueba para los ejercicios
+│      └── usecases/
+│            └──                               # utilitarios para modelado de casos de uso
 ├── README.md
 └── .gitignore
 ```
