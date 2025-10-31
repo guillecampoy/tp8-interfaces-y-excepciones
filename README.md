@@ -52,9 +52,7 @@ Tp8-interfaces-y-excepciones/
 
 ## Casos de uso y demostración del trabajo
 
-### 1- E-commerce:
-
-#### 1.1 Casos de uso propuestos
+### 1- E-commerce (interfaces):
 
 >Caso de uso 1: “Crear un Pedido para un Cliente”
 
@@ -157,6 +155,28 @@ Historial de notificaciones enviadas (opcional como texto en consola)
 **Justificación:**
 
 Integra todo en una vista “final”: colecciones, cálculo total, estado, notificaciones.
+
+### 2- Excepciones:
+
+>Caso de uso 1: “División segura”
+
+Solicitar dos números y dividirlos. Manejar ArithmeticException si el divisor es cero.
+
+>Caso de uso 2: “Conversión de cadena a número”
+
+Leer texto del usuario e intentar convertirlo a int. Manejar NumberFormatException si no es válido.
+
+>Caso de uso 3: “Lectura de archivo”
+
+Leer un archivo de texto y mostrarlo. Manejar FileNotFoundException si el archivo no existe.
+
+>Caso de uso 4: “Excepción personalizada”
+
+Crear EdadInvalidaException. Lanzarla si la edad es menor a 0 o mayor a 120. Capturarla y mostrar mensaje.
+
+>Caso de uso 5: “Uso de try-with-resources”
+
+Leer un archivo con BufferedReader usando try-with-resources. Manejar IOException correctamente.
 
 ---
 ✍️ **Autor:** Guillermo Campoy  
